@@ -52,37 +52,6 @@ function App() {
     
   );
 }
-  // const [flowers, setFlowers] = useState([FLOWER_SELECTION]);
-
-  // const handleAddClick = (flowerId) => {
-
-  //   if(add.includes(flowerId)){
-
-  //   const addCart = add.filter( (singleAdd) => {
-  //     return flowerId !== singleAdd;
-  //   });
-  //   setAdd(addCart);
-  //   } else{
-  //     setAdd([...add, flowerId]);
-  //   }
-  // }
-
-
-// return (
-//   <div className="bg-gradient-to-r from-purple-500 to-blue-800 min-h-screen">
-//         <h1 className="">Selection of Flowers</h1>
-
-//         <div className="grid grid-cols-3 gap-6">
-//           {records.map((singleRecord) => {
-
-//             return (
-//               <Album key={singleRecord.id} record={singleRecord} favourites={favs} handleFavClick={handleFavClick}/>
-//             )
-//           })}
-//         </div>
-//   </div>
-// )
-// }
 
 
 export default App

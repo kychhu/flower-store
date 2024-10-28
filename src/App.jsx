@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Header from './Header';
+import Footer from './Footer';
 
 
 const FLOWER_SELECTION = [ 
@@ -76,7 +77,7 @@ function App() {
     <div>
     <h1 className="text-white text-center text-4xl font-bold mb-6 mt-8">Selection of Flowers</h1>
     
-    
+    <Footer />
     </div>
     </div>
 

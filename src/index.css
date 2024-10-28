@@ -1,0 +1,4 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Template path linking to CSS that is imported in the Main.jsx */

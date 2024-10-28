@@ -13,12 +13,12 @@ function Header() {
             {/* Displays the image banner making it absolute */}
             <img src={flowerBanner} alt="Banner Image" class="absolute inset-0 w-full h-60 object-cover" />
 
-            <div class="min-h-[150px] relative z-50 h-60 max-w-6xl mx-auto flex flex-col justify-center items-center text-center text-white p-6"> 
+            <div class="min-h-[150px] relative z-50 h-60 max-w-6xl mx-auto flex flex-col justify-center items-center text-center text-white p-6">
                 <h2 class="sm:text-4xl text-2xl font-bold mb-6">Welcome to the Flower Store!</h2>
                 <p class="sm:text-lg text-base text-center text-gray-200">Find a beautiful bouquets today for your love ones!</p>
 
-
             </div>
+            <h1 className="text-white text-center text-4xl font-bold mb-6 mt-8">Selection of Flowers</h1>
         </div>
 
     );

@@ -1,84 +1,52 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import flowerData from './Flower-data/flowers.json'
 import Header from './Header';
 import Footer from './Footer';
+import IonIcon from '@reacticons/ionicons';
 
 
-const FLOWER_SELECTION = [ 
-  {
-    id: 1,
-    tite: "Daisies",
-    price: 12.00,
-    imageUsed: "https://assets.americanmeadows.com/media/wysiwyg/d/a/daisy-leucanthemum-shutterstock_153582737.jpg?quality=80&auto=webp&format=pjpg"
-  },
-  {
-    id: 2, 
-    title: "Lilies",
-    price: 15.99,
-    imageUsed: "https://www.extension.iastate.edu/news/files/eo-news/images/asiaticlilies_adobestock_225777932.jpg"
-  },
-  {
-    id: 3, 
-    title: "Roses",
-    price: 21.99,
-    imageUsed: "https://bouqs.com/blog/wp-content/uploads/2018/08/shutterstock_1662182848-min-1080x719.jpg"
-  },
-  {
-    id: 4, 
-    title: "Orchids",
-    price: 34.99,
-    imageUsed: "https://hips.hearstapps.com/hmg-prod/images/blooming-phalaenopsis-orchids-white-purple-pink-royalty-free-image-1728585929.jpg?crop=0.668xw:1.00xh;0.0912xw,0&resize=1120:*"
-  },
-
-  {
-    id: 5, 
-    title: "Tulips",
-    price: 17.99,
-    imageUsed: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFVU-F3go5NgP_H7N2P-ABBd4uDwc-ijC7mw&s"
-  },
-  {
-    id: 6, 
-    title: "Violets",
-    price: 23.99,
-    imageUsed: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvq2Pp-lt8zUmY_wgovZEeOI-RfJz4857Y0Q&s"
-  },
-  {
-    id: 7, 
-    title: "Sunflowers",
-    price: 16.99,
-    imageUsed: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_EWynWolH_lbRS0hjCMs-NrsS1tfyEGEFqw&s"
-  },
-  {
-    id: 8, 
-    title: "Carnations",
-    price: 24.99,
-    imageUsed: "https://wardsfarmflowers.com/wp-content/uploads/2021/08/Carnations.jpg"
-  },
-
-];
 // only used to connect components
 // import them, then return them
 function App() {
+  
+  const [flowers, setFlowers] = useState(flowerData.flowerData);
 
-  const [add, setAdd] = useState([]);
+  const[favs, setFavs] = useState([]);
 
-  const handleAddClick = (flowerId) => {
-    if (add.includes(flowerId)) {
-      setAdd(add.filter(singleAdd => singleAdd !== flowerId));
+  const handleAddClick = (albumId) => {
+
+    // if this is false, add the item to the favs
+    // if not, remove it
+    if(favs.includes(albumId)) {
+
+      const newFavs = favs.filter( (singleFav) => {
+        return albumId !== singleFav;
+      });
+      
+      setFavs(newFavs);
+
     } else {
-      setAdd([...add, flowerId]);
+      setFavs([...favs, albumId]);
     }
-  };
+  }
 
   return (
 // Gives a background color to the store page!
      <div className="bg-violet-950/[.7] min-h-screen">
 {/* imports my Header component in order so that the remaing product listings are not above it*/}
     <Header />
-    <div>
-    <h1 className="text-white text-center text-4xl font-bold mb-6 mt-8">Selection of Flowers</h1>
     
-    <Footer />
-    </div>
+      {/* <div className="grid grid-cols-3 gap-6">
+            {records.map((singleProduct) => {
+
+              return (
+                <Flower key={singleProduct.id} flower={singleProduct} favourites={favs} handleAddClick={handleAddClick}/>
+              )
+            })}
+          </div> */}
+<Footer />
+    
     </div>
 
     

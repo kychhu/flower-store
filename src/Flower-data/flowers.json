@@ -1,4 +1,7 @@
-[
+{
+  "flowerData":[
+
+ 
     {
       "id": 1,
       "title": "Daisies",
@@ -48,4 +51,5 @@
       "imageUsed": "https://wardsfarmflowers.com/wp-content/uploads/2021/08/Carnations.jpg"
     }
   ]
+}
   

@@ -1,57 +1,57 @@
-import { useEffect, useState } from 'react';
+// Webscripting 2 - Assignmnet 1
+//Kurtis Nguyen A01325231
 
-import flowerData from './Flower-data/flowers.json'
+//Imports useState that allows functions to updates variables from react
+import { useState } from 'react';
+// Imports the flowerData going to the JSON folder 
+import flowerData from './Flower-data/flowers.json';
+// Imports the Header component
 import Header from './Header';
+// Imports the Card component
+import Card from './Card';
+// Imports the Footer component
 import Footer from './Footer';
-import IonIcon from '@reacticons/ionicons';
 
-
-// only used to connect components
-// import them, then return them
+//Defines the entire application, 
 function App() {
-  
+
+  // Accesses the array of flowers inside the "flowerData" object from your JSON file
+  //Set flowers, updates the flower state with using useState to update grab the array of data from the JSON file
   const [flowers, setFlowers] = useState(flowerData.flowerData);
+  // useState has no values meaning that there are no favorited items at the moment
+  const [favs, setFavs] = useState([]);
 
-  const[favs, setFavs] = useState([]);
-
-  const handleAddClick = (albumId) => {
-
-    // if this is false, add the item to the favs
-    // if not, remove it
-    if(favs.includes(albumId)) {
-
-      const newFavs = favs.filter( (singleFav) => {
-        return albumId !== singleFav;
-      });
-      
+  // Handler for adding or removing a flower from favorites
+  //handlefavclick is also defined in card.jsx where it has onclick fav or unfav btn, it will set a new fav or not
+  const handleFavClick = (flowerId) => {
+    if (favs.includes(flowerId)) {
+      const newFavs = favs.filter((singleFav) => flowerId !== singleFav);
+      // updates favs state with a new list
       setFavs(newFavs);
-
+      // Updates the favourites flower cards and keep the existing cards favourited
     } else {
-      setFavs([...favs, albumId]);
+      setFavs([...favs, flowerId]);
     }
-  }
+  };
 
   return (
-// Gives a background color to the store page!
-     <div className="bg-violet-950/[.7] min-h-screen">
-{/* imports my Header component in order so that the remaing product listings are not above it*/}
-    <Header />
-    
-      {/* <div className="grid grid-cols-3 gap-6">
-            {records.map((singleProduct) => {
-
-              return (
-                <Flower key={singleProduct.id} flower={singleProduct} favourites={favs} handleAddClick={handleAddClick}/>
-              )
-            })}
-          </div> */}
-<Footer />
-    
+    // Create a div to style the entire background!
+    <div className="bg-violet-950/[.7] min-h-screen">
+      {/* Load in the Header, in order */}
+      <Header />
+      {/*Create a div to style the layout of the cards */}
+      <div className="container mx-auto p-5 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-start">
+        {/* Loops through the flower array */}
+        {flowers.map((singleFlower) => (
+          //Load in the card component, each card is singleflower.id so each flower card has a unique id
+          <Card key={singleFlower.id} flower={singleFlower} favourites={favs} handleFavClick={handleFavClick} />
+        ))}
+      </div>
+      {/* Load in the Footer, in order */}
+      <Footer />
     </div>
 
-    
   );
 }
 
-
-export default App
+export default App;

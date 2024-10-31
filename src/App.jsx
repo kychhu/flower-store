@@ -1,6 +1,10 @@
 // Webscripting 2 - Assignmnet 1
 //Kurtis Nguyen A01325231
 
+// Github link:
+// https://github.com/kychhu/flower-store
+
+
 //Imports useState that allows functions to updates variables from react
 import { useState } from 'react';
 // Imports the flowerData going to the JSON folder 

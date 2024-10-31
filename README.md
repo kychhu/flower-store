@@ -2,6 +2,9 @@ Webscripting 2 - Assignmnet 1
 Kurtis Nguyen A01325231
 
 
+Github link:
+https://github.com/kychhu/flower-store
+
 The flower store project is my first assignment of attempting to create a single page website using React & Vite. Using tailwind and react, I learnt the first steps to make components to create a store front page for flowers.
 
 
